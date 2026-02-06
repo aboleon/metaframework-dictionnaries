@@ -1,5 +1,12 @@
 # MetaFramework Dictionnaries
 
+[![Tests](https://github.com/aboleon/metaframework-dictionnaries/actions/workflows/tests.yml/badge.svg)](https://github.com/aboleon/metaframework-dictionnaries/actions)
+[![codecov](https://codecov.io/gh/aboleon/metaframework-dictionnaries/graph/badge.svg)](https://codecov.io/gh/aboleon/metaframework-dictionnaries)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/aboleon/metaframework-dictionnaries.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-dictionnaries)
+[![Total Downloads](https://img.shields.io/packagist/dt/aboleon/metaframework-dictionnaries.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-dictionnaries)
+[![PHP Version](https://img.shields.io/packagist/php-v/aboleon/metaframework-dictionnaries.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-dictionnaries)
+[![License](https://img.shields.io/packagist/l/aboleon/metaframework-dictionnaries.svg?style=flat-square)](https://packagist.org/packages/aboleon/metaframework-dictionnaries)
+
 `aboleon/metaframework-dictionnaries` is a Laravel package for managing dictionaries and dictionary entries.
 
 It is not restricted to "MetaFramework applications". It can be installed in any Laravel app, while relying on MetaFramework packages as technical dependencies.

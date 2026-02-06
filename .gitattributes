@@ -16,3 +16,4 @@
 /pint.json export-ignore
 /AGENTS.md  export-ignore
 /coverage.xml
+*.log
