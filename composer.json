@@ -1,0 +1,64 @@
+{
+    "name": "aboleon/metaframework-dictionnaries",
+    "description": "Dictionnaries management package for MetaFramework",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "meta framework"
+    ],
+    "authors": [
+        {
+            "name": "Aboleon Media",
+            "email": "dev@aboleon.media"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "aboleon/metaframework": "dev-mfw-2026",
+        "yajra/laravel-datatables": "^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.6",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.0.1",
+        "laravel/pint": "^1.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "MetaFramework\\Dictionnaries\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MetaFramework\\Dictionnaries\\DictionnariesServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}
