@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MetaFramework\Dictionnaries\DataTables;
 
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Http\JsonResponse;
 use MetaFramework\Accessors\Locale as LocaleAccessor;
 use MetaFramework\Dictionnaries\DataTables\View\DictionaryView;
 use MetaFramework\Dictionnaries\Enum\DictionnaryType;
@@ -13,9 +14,8 @@ use MetaFramework\Dictionnaries\Traits\DataTables\Common;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Services\DataTable;
 
-class DictionnaryDataTable extends DataTable
+class DictionnaryDataTable
 {
     use Common;
 
@@ -148,6 +148,17 @@ class DictionnaryDataTable extends DataTable
         return $columns;
     }
 
+    public function render(string $view, array $data = []): JsonResponse|\Illuminate\View\View
+    {
+        if (request()->ajax()) {
+            return $this->dataTable($this->query(app(DictionaryView::class)))->toJson();
+        }
+
+        return view($view, array_merge($data, [
+            'dataTable' => $this->html(),
+        ]));
+    }
+
     /**
      * Get the filename for export.
      */
@@ -161,5 +172,10 @@ class DictionnaryDataTable extends DataTable
         $safeLocale = preg_replace('/[^a-zA-Z0-9_-]/', '', $locale) ?: 'en';
 
         return '$.' . $safeLocale;
+    }
+
+    protected function builder(): HtmlBuilder
+    {
+        return app(HtmlBuilder::class);
     }
 }

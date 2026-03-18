@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Str;
 use MetaFramework\Dictionnaries\DictionnariesServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Tests\Concerns\ResetsMultilangCache;
@@ -13,6 +14,17 @@ abstract class TestCase extends Orchestra
 {
     use RefreshDatabase;
     use ResetsMultilangCache;
+
+    protected function resolveApplication()
+    {
+        $app = parent::resolveApplication();
+        $cacheRoot = dirname(__DIR__) . DIRECTORY_SEPARATOR . '.phpunit.cache';
+        $drivePrefix = Str::before($cacheRoot, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+
+        $app->addAbsoluteCachePathPrefix($drivePrefix);
+
+        return $app;
+    }
 
     protected function getPackageProviders($app): array
     {
