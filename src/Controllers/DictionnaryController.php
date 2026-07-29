@@ -49,7 +49,7 @@ class DictionnaryController extends Controller
         try {
             $dictionnary = new Dictionnary;
             $this->fillFromRequest($dictionnary);
-            $this->responseSuccess(__('mfw.record_created'));
+            $this->responseSuccess(__('mfw::mfw.record_created'));
             $this->redirect_to = route(RouteNaming::name('dictionnary.edit'), $dictionnary);
         } catch (Throwable $e) {
             $this->responseException($e);
@@ -69,7 +69,7 @@ class DictionnaryController extends Controller
                 Dictionnaries::reset($previousSlug);
             }
             Dictionnaries::reset($dictionnary->slug);
-            $this->responseSuccess(__('mfw.record_updated'));
+            $this->responseSuccess(__('mfw::mfw.record_updated'));
             $this->redirect_to = route(RouteNaming::name('dictionnary.edit'), $dictionnary);
         } catch (Throwable $e) {
             $this->responseException($e);
@@ -101,7 +101,7 @@ class DictionnaryController extends Controller
             $dictionnary->delete();
 
             $this->redirectRoute(RouteNaming::name('dictionnary.index'))
-                ->responseSuccess(__('mfw.record_deleted'));
+                ->responseSuccess(__('mfw::mfw.record_deleted'));
         } catch (Throwable $e) {
             $this->responseException(
                 $e,

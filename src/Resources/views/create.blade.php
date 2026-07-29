@@ -59,9 +59,9 @@
                                 id="tab_translatable_btn_{{ $locale }}" data-bs-toggle="tab"
                                 data-bs-target="#tab_translatable_{{ $locale }}" type="button" role="tab"
                                 aria-controls="tab_translatable_{{ $locale }}" aria-selected="true">
-                                <img src="{!! asset('vendor/flags/4x3/' . $locale . '.svg') !!}" alt="{{ trans('mfw-lang.' . $locale . '.label') }}"
+                                <img src="{!! asset('vendor/flags/4x3/' . $locale . '.svg') !!}" alt="{{ trans('mfw::mfw-lang.' . $locale . '.label') }}"
                                     class="d-inline-block" />
-                                {!! trans('mfw-lang.' . $locale . '.label') !!}
+                                {!! trans('mfw::mfw-lang.' . $locale . '.label') !!}
                             </button>
                         </li>
                     @endforeach

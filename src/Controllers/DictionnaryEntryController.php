@@ -97,7 +97,7 @@ class DictionnaryEntryController extends Controller
 
             Dictionnaries::reset($dictionnary->slug);
 
-            $this->responseSuccess(__('mfw.record_created'));
+            $this->responseSuccess(__('mfw::mfw.record_created'));
             $this->redirectTo(route(RouteNaming::name('dictionnary.entries.index'), $dictionnary));
         } catch (Throwable $e) {
             $this->responseException($e);
@@ -121,7 +121,7 @@ class DictionnaryEntryController extends Controller
 
             Dictionnaries::reset($dictionnaryentry->dictionnary->slug);
 
-            $this->responseSuccess(__('mfw.record_updated'));
+            $this->responseSuccess(__('mfw::mfw.record_updated'));
             $this->redirectTo(route(RouteNaming::name('dictionnary.entries.index'), $dictionnaryentry->dictionnary));
         } catch (Throwable $e) {
             $this->responseException($e);
@@ -139,7 +139,7 @@ class DictionnaryEntryController extends Controller
             Dictionnaries::reset($dictionnaryentry->dictionnary->slug);
 
             $this->redirectTo(route(RouteNaming::name('dictionnary.entries.index'), $dictionnary))
-                ->responseSuccess(__('mfw.record_deleted'))
+                ->responseSuccess(__('mfw::mfw.record_deleted'))
                 ->whitout('object');
         } catch (Throwable $e) {
             $this->responseException($e, __('mfw-dictionnaries::mfw-dictionnaries.messages.entry_delete_blocked'));

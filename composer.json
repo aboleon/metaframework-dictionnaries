@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "aboleon/metaframework": "dev-mfw-2026|1.x-dev",
+        "aboleon/metaframework": "^2.0",
         "yajra/laravel-datatables-html": "^13.0",
         "yajra/laravel-datatables-oracle": "^13.0"
     },
